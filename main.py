@@ -19,6 +19,7 @@ def initData():
     data_L = pd.read_csv('../MILP/L.csv')
     # head count required per period data
     data_P = pd.read_csv('../MILP/P.csv')
+    print(hex(id(data_P)))
     # Schedules indeces data
     data_S = pd.read_csv('../MILP/S.csv')
     data_S['index1'] = data_S.index
@@ -56,7 +57,7 @@ def main():
 
     # initilize Genetic algorithm
     genetic = Genetic(chromosome_length=len(
-        problem.agents), mutation_propability=0.005, population_length=1000, generations=1000)
+        problem.agents), mutation_propability=0.005, population_length=100, generations=1000)
 
     # initilize population
     genetic.initilize_population(agents=problem.agents)
@@ -71,6 +72,7 @@ def main():
         genetic.mutation(agents=problem.agents)
         # elitism
         genetic.elite()
+        print(genetic.highlander.objective_function)
 
     # output results
     data_Output = pd.read_csv('../MILP/A.csv')
@@ -84,4 +86,4 @@ if __name__ == "__main__":
     start = time.perf_counter()
     main()
     finish = time.perf_counter()
-    print(f"optimized in {finish - start:0.4f} seconds")
+    print(f"optimized in {finish -start:0.4f} seconds")
