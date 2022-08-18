@@ -18,7 +18,7 @@ class Gene:
         self._schedule_index = schedule_index
 
     # getters
-    @property
+    # @property
     def schedule_id(self):
         return self._schedule_id
 

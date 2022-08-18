@@ -62,7 +62,7 @@ def main():
     genetic.initilize_population(agents=problem.agents)
 
     # start creating generations
-    for _ in range(genetic.generations):
+    for i in range(genetic.generations):
         # calculate fitness
         genetic.calculate_fitness(problem=problem)
         # crossover
@@ -71,7 +71,8 @@ def main():
         genetic.mutation(agents=problem.agents)
         # elitism
         genetic.elite()
-        print(genetic.highlander.objective_function)
+        print(
+            f'Generation: {i}, Objective: {genetic.highlander.objective_function}')
 
     # output results
     data_Output = pd.read_csv('../MILP/A.csv')
