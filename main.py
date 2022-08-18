@@ -19,7 +19,6 @@ def initData():
     data_L = pd.read_csv('../MILP/L.csv')
     # head count required per period data
     data_P = pd.read_csv('../MILP/P.csv')
-    print(hex(id(data_P)))
     # Schedules indeces data
     data_S = pd.read_csv('../MILP/S.csv')
     data_S['index1'] = data_S.index
